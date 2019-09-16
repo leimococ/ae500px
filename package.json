@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "clean": "rm -f ./yarn.lock && rm -f ./yarn-*.log && yarn cache clean",
-    "cli": "node node_modules/react-native/local-cli/cli.js start",
     "devices": "instruments -s devices",
     "init": "rm -rf ./node_modules && yarn",
     "lint": "standard --fix --parser babel-eslint",

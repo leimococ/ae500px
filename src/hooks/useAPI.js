@@ -10,7 +10,7 @@ const requestNewToken = async () => {
     const response = await axios.post(`${config.API}/auth`, { apiKey: config.apiKey })
     token = response.data && response.data.token
   } catch (error) {
-    console.log(error.toString())
+    console.error(error.toString())
   }
   return token
 }
@@ -24,7 +24,7 @@ const useAPI = () => {
         const response = await axios.get(`${config.API}/images/${id}`, { headers: { Authorization: 'Bearer ' + token } })
         image = response.data
       } catch (error) {
-        console.log(error.toString())
+        console.error(error.toString())
       }
       return image
     },
