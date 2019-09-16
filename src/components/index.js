@@ -1,5 +1,5 @@
-import Details from './Details'
-import Gallery from './Gallery'
+import Details from 'ae500px/src/components/Details'
+import Gallery from 'ae500px/src/components/Gallery'
 
 export {
   Details,

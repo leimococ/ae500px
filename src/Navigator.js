@@ -1,7 +1,7 @@
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 
-import { Details, Gallery } from './components'
+import { Details, Gallery } from 'ae500px/src/components'
 
 const Navigator = createStackNavigator({
   Details: { screen: Details },

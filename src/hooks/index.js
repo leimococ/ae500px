@@ -1,4 +1,4 @@
-import useAPI from './useAPI'
+import useAPI from 'ae500px/src/hooks/useAPI'
 
 export {
   useAPI

@@ -2,9 +2,9 @@ import React, { useReducer } from 'react'
 import { StatusBar } from 'react-native'
 import { ThemeProvider } from 'styled-components'
 
-import Navigator from './Navigator'
-import { Token } from './contexts'
-import { theme } from './utils'
+import Navigator from 'ae500px/src/Navigator'
+import { Token } from 'ae500px/src/contexts'
+import { theme } from 'ae500px/src/utils'
 
 const App = () => {
   const [token, dispatchToken] = useReducer((state, token) => token, '') // ..replace '' with a DB-stored token for each user
