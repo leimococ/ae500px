@@ -3,8 +3,8 @@ import styled from 'styled-components/native'
 import { Dimensions, FlatList, Image, SafeAreaView, TouchableOpacity } from 'react-native'
 import { withNavigation } from 'react-navigation'
 
-import { Token } from '../contexts'
-import { useAPI } from '../hooks'
+import { Token } from 'ae500px/src/contexts'
+import { useAPI } from 'ae500px/src/hooks'
 
 const Header = styled.View`
   align-items: center;

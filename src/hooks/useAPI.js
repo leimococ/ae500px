@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { useContext } from 'react'
 
-import config from '../../config'
-import { Token } from '../contexts'
+import config from 'ae500px/config'
+import { Token } from 'ae500px/src/contexts'
 
 const requestNewToken = async () => {
   let token = ''

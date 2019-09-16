@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Dimensions, Image, SafeAreaView, TouchableOpacity } from 'react-native'
 import { withNavigation } from 'react-navigation'
 
-import { useAPI } from '../hooks'
+import { useAPI } from 'ae500px/src/hooks'
 
 const Back = styled.Text`
   color: ${({ theme }) => theme.white};
