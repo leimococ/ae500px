@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/native'
 import { Dimensions, Image, SafeAreaView, TouchableOpacity } from 'react-native'
 import { withNavigation } from 'react-navigation'
 
