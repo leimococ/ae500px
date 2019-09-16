@@ -44,10 +44,19 @@ const Main = styled.View`
 `
 
 const Details = ({ navigation, theme }) => {
-  const [image, setImage] = useState({})
   const api = useAPI()
   const id = navigation.getParam('id')
+  const [image, setImage] = useState({})
   const size = Math.floor(Dimensions.get('window').width)
+
+  useEffect(() => {
+    const fetch = async () => {
+      const image = await api.image(id)
+      setImage(image)
+    }
+    fetch()
+  }, [id])
+
   const contents = image.id ? (
     <>
       <Header>
@@ -64,14 +73,6 @@ const Details = ({ navigation, theme }) => {
       </Main>
     </>
   ) : <Loading><LoadingText>Loading image ${id}</LoadingText></Loading>
-
-  useEffect(() => {
-    const fetch = async () => {
-      const image = await api.image(id)
-      setImage(image)
-    }
-    fetch()
-  }, [id])
 
   return (
     <SafeAreaView>

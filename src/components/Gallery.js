@@ -19,11 +19,11 @@ const Title = styled.Text`
 `
 
 const Gallery = ({ navigation }) => {
+  const api = useAPI()
   const [complete, setComplete] = useState(false)
   const [images, setImages] = useState([])
   const [loading, setLoading] = useState(true)
   const [page, setPage] = useState(1)
-  const api = useAPI()
   const { token } = useContext(Token)
 
   const loadNextPage = () => {
