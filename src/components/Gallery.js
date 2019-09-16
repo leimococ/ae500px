@@ -19,9 +19,18 @@ const Title = styled.Text`
 `
 
 const Gallery = ({ navigation }) => {
+  const [complete, setComplete] = useState(false)
   const [images, setImages] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [page, setPage] = useState(1)
   const api = useAPI()
   const { token } = useContext(Token)
+
+  const loadNextPage = () => {
+    if (!complete && !loading) {
+      setPage(page + 1)
+    }
+  }
 
   const renderItem = ({ item }) => {
     const size = Math.floor(Dimensions.get('window').width / 2)
@@ -36,20 +45,29 @@ const Gallery = ({ navigation }) => {
   }
 
   useEffect(() => {
+    setLoading(true)
     const fetch = async () => {
-      const images = await api.images()
-      setImages(images)
+      const more = await api.images(page)
+      if (more.length) {
+        setImages([...images, ...more])
+      } else if (token.length) {
+        setComplete(true)
+      }
+      setLoading(false)
     }
     fetch()
-  }, [token])
+  }, [page, token])
 
   return (
     <SafeAreaView>
       <Header><Title>Gallery app</Title></Header>
       <FlatList
+        bounces={false}
         data={images}
         keyExtractor={(item) => item.id}
         numColumns={2}
+        onEndReached={loadNextPage}
+        onEndReachedThreshold={1}
         renderItem={renderItem}
       />
     </SafeAreaView>

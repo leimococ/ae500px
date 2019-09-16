@@ -28,10 +28,10 @@ const useAPI = () => {
       }
       return image
     },
-    images: async () => {
+    images: async (page) => {
       let images = []
       try {
-        const response = await axios.get(`${config.API}/images`, { headers: { Authorization: 'Bearer ' + token } })
+        const response = await axios.get(`${config.API}/images?page=${page}`, { headers: { Authorization: 'Bearer ' + token } })
         images = response.data && response.data.pictures
       } catch (error) {
         if (error.toString() === 'Error: Request failed with status code 401') {

@@ -18,6 +18,3 @@ $ yarn run start
 ```
 
 >If simulator fails to start with "Could not find simulator" error then `yarn run devices` and replace simulator in packages.json's `start` script with an existing one in your system.
-
-### To do
-- Load more images using "page" parameter from API as user scrolls down the gallery
