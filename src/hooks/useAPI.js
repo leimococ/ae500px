@@ -16,7 +16,7 @@ const requestNewToken = async () => {
 }
 
 const useAPI = () => {
-  const { token, dispatchToken } = useContext(Token)
+  const { dispatchToken, token } = useContext(Token)
   return {
     image: async (id) => {
       let image = {}
