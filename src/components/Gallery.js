@@ -45,8 +45,8 @@ const Gallery = ({ navigation }) => {
   }
 
   useEffect(() => {
-    setLoading(true)
     const fetch = async () => {
+      setLoading(true)
       const more = await api.images(page)
       if (more.length) {
         setImages([...images, ...more])
