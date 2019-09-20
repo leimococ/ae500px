@@ -46,8 +46,8 @@ const Main = styled.View`
 const Details = ({ navigation, theme }) => {
   const api = useAPI()
   const id = navigation.getParam('id')
-  const [image, setImage] = useState({})
   const size = Math.floor(Dimensions.get('window').width)
+  const [image, setImage] = useState({})
 
   useEffect(() => {
     const fetch = async () => {
@@ -57,26 +57,24 @@ const Details = ({ navigation, theme }) => {
     fetch()
   }, [id])
 
-  const contents = image.id ? (
-    <>
-      <Header>
-        <TouchableOpacity activeOpacity={0.7} onPress={() => navigation.navigate('Gallery')}>
-          <Back>{'<'}</Back>
-        </TouchableOpacity>
-      </Header>
-      <Main>
-        <Image
-          source={{ uri: image.full_picture }}
-          style={{ height: size, width: size }}
-        />
-        <Info>{image.author} - {image.camera}</Info>
-      </Main>
-    </>
-  ) : <Loading><LoadingText>Loading image ${id}</LoadingText></Loading>
-
   return (
     <SafeAreaView>
-      {contents}
+      {image.id ? (
+        <>
+          <Header>
+            <TouchableOpacity activeOpacity={0.7} onPress={() => navigation.navigate('Gallery')}>
+              <Back>{'<'}</Back>
+            </TouchableOpacity>
+          </Header>
+          <Main>
+            <Image
+              source={{ uri: image.full_picture }}
+              style={{ height: size, width: size }}
+            />
+            <Info>{image.author} - {image.camera}</Info>
+          </Main>
+        </>
+      ) : <Loading><LoadingText>Loading image ${id}</LoadingText></Loading>}
     </SafeAreaView>
   )
 }

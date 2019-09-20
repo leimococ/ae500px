@@ -6,8 +6,11 @@ import Navigator from 'ae500px/src/Navigator'
 import { Token } from 'ae500px/src/contexts'
 import { theme } from 'ae500px/src/utils'
 
+const reducer = (state, token) => token
+
 const App = () => {
-  const [token, dispatchToken] = useReducer((state, token) => token, '')
+  const [token, dispatchToken] = useReducer(reducer, '')
+
   return (
     <ThemeProvider theme={theme}>
       <Token.Provider value={{ dispatchToken, token }}>
