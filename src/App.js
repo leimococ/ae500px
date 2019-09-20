@@ -7,7 +7,7 @@ import { Token } from 'ae500px/src/contexts'
 import { theme } from 'ae500px/src/utils'
 
 const App = () => {
-  const [token, dispatchToken] = useReducer((state, token) => token, '') // ..replace '' with a DB-stored token for each user
+  const [token, dispatchToken] = useReducer((state, token) => token, '')
   return (
     <ThemeProvider theme={theme}>
       <Token.Provider value={{ dispatchToken, token }}>
